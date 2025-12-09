@@ -18,7 +18,7 @@ const HeroSection = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/images/Don%20Esteban%20Gourmet.jfif)',
+          backgroundImage: 'url(/images/hero.jpg)',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>

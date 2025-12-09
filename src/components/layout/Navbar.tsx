@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,17 +34,14 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" className="flex items-center">
-            <Image
-              src="/images/LOGO DON ESTEBAN GOURMET.png"
-              alt="Don Esteban Gourmet"
-              width={200}
-              height={80}
-              priority
-              className={`w-auto transition-all duration-300 ${
-                isScrolled ? 'h-12 md:h-14' : 'h-16 md:h-20'
+          <a href="#hero" className="flex items-center space-x-2">
+            <span
+              className={`font-serif text-2xl font-bold transition-colors ${
+                isScrolled ? 'text-wine-800' : 'text-white drop-shadow-lg'
               }`}
-            />
+            >
+              Don Esteban Gourmet
+            </span>
           </a>
 
           {/* Desktop Menu */}

@@ -1,8 +1,39 @@
 'use client';
 
-import { Heart, Award, Users } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Heart, Award, Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 const AboutSection = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  
+  const images = [
+    {
+      src: '/images/historia-tabla.png',
+      alt: 'Tabla de embutidos y quesos gourmet',
+    },
+    {
+      src: '/images/historia-chef.png',
+      alt: 'Chef preparando productos gourmet',
+    },
+  ];
+
+  // Carrusel automático cada 5 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+  };
+
   return (
     <section id="about" className="py-20 bg-cream-50">
       <div className="container mx-auto px-4">
@@ -30,14 +61,58 @@ const AboutSection = () => {
               </p>
             </div>
 
-            {/* Image Placeholder */}
-            <div className="relative h-96 rounded-lg overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2074"
-                alt="Interior de la charcutería"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            {/* Image Carousel */}
+            <div className="relative h-96 rounded-lg overflow-hidden shadow-2xl group">
+              {/* Images */}
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${
+                    index === currentImage ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                </div>
+              ))}
+
+              {/* Navigation Buttons */}
+              <button
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg"
+                aria-label="Imagen anterior"
+              >
+                <ChevronLeft className="w-6 h-6 text-wine-800" />
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg"
+                aria-label="Siguiente imagen"
+              >
+                <ChevronRight className="w-6 h-6 text-wine-800" />
+              </button>
+
+              {/* Indicators */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImage(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentImage
+                        ? 'bg-white w-8'
+                        : 'bg-white/50 hover:bg-white/75'
+                    }`}
+                    aria-label={`Ir a imagen ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
