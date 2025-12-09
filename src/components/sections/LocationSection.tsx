@@ -1,6 +1,6 @@
 'use client';
 
-import { MapPin, Clock, Phone } from 'lucide-react';
+import { MapPin, Clock, Phone, Navigation } from 'lucide-react';
 
 const LocationSection = () => {
   const locationData = {
@@ -16,51 +16,89 @@ const LocationSection = () => {
   };
 
   return (
-    <section id="location" className="py-20 bg-cream-50">
-      <div className="container mx-auto px-4">
-        {/* Title */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-wine-900 mb-6">
-            Dónde Estamos
+    <section id="location" className="py-24 bg-dark-950 relative overflow-hidden">
+      {/* Patrón de fondo */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle, #dc2626 1px, transparent 1px)',
+          backgroundSize: '30px 30px',
+        }}></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Title Premium */}
+        <div className="text-center max-w-4xl mx-auto mb-20 animate-fade-in-up">
+          <div className="inline-block mb-4">
+            <span className="px-6 py-2 bg-spanish-600/20 border border-gold-400/30 rounded-full text-gold-400 text-sm font-bold tracking-wider">
+              📍 ENCUÉNTRANOS
+            </span>
+          </div>
+          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+            <span className="block text-white mb-2">Visítanos en</span>
+            <span className="block bg-gradient-to-r from-spanish-500 via-gold-400 to-spanish-500 bg-clip-text text-transparent">
+              {locationData.city}
+            </span>
           </h2>
-          <div className="w-24 h-1 bg-wine-600 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Visítanos en nuestra tienda física y descubre todos nuestros productos. Te esperamos con la mejor atención.
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="h-px w-20 bg-gradient-to-r from-transparent via-gold-400 to-transparent"></div>
+            <Navigation className="w-5 h-5 text-gold-400" />
+            <div className="h-px w-20 bg-gradient-to-r from-transparent via-gold-400 to-transparent"></div>
+          </div>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            Te esperamos con la mejor atención y productos selectos de España
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Map */}
-          <div className="h-[450px] rounded-lg overflow-hidden shadow-2xl">
-            <iframe
-              src={locationData.mapEmbedUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Ubicación de Don Esteban Gourmet"
-              className="grayscale hover:grayscale-0 transition-all duration-300"
-            />
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
+          {/* Map Premium */}
+          <div className="relative animate-slide-in-left">
+            {/* Frame decorativo */}
+            <div className="absolute -inset-4 bg-gradient-to-br from-spanish-600/20 via-gold-400/10 to-spanish-600/20 rounded-3xl blur-xl"></div>
+            
+            <div className="relative h-[350px] md:h-[450px] lg:h-[500px] rounded-2xl overflow-hidden border-4 border-gold-400/30 shadow-2xl">
+              <iframe
+                src={locationData.mapEmbedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación de Don Esteban Gourmet"
+                className="grayscale hover:grayscale-0 transition-all duration-500"
+              />
+              
+              {/* Overlay con info */}
+              <div className="absolute bottom-6 left-6 right-6 bg-dark-900/90 backdrop-blur-md border border-gold-400/30 rounded-xl p-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-spanish-600 to-spanish-700 rounded-lg flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-gold-400 text-sm font-semibold">NUESTRA UBICACIÓN</p>
+                    <p className="text-white font-medium">{locationData.city}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-8">
+          {/* Contact Info Premium */}
+          <div className="space-y-4 md:space-y-6 animate-slide-in-right">
             {/* Address */}
-            <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-wine-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-7 h-7 text-wine-600" />
+            <div className="group bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-8 border-2 border-spanish-600/20 hover:border-gold-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-spanish-600/20">
+              <div className="flex items-start gap-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-spanish-600 to-spanish-700 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:rotate-6 transition-transform">
+                  <MapPin className="w-8 h-8 text-white" />
                 </div>
-                <div>
-                  <h3 className="font-serif text-2xl font-bold text-wine-900 mb-2">
+                <div className="flex-1">
+                  <h3 className="font-serif text-2xl font-bold text-gold-400 mb-3 group-hover:text-gold-300 transition-colors">
                     Dirección
                   </h3>
-                  <p className="text-gray-700 text-lg leading-relaxed">
+                  <p className="text-gray-300 text-lg leading-relaxed mb-1">
                     {locationData.address}
                   </p>
-                  <p className="text-gray-700 text-lg">
+                  <p className="text-gray-400 text-lg">
                     {locationData.city}
                   </p>
                 </div>
@@ -68,47 +106,50 @@ const LocationSection = () => {
             </div>
 
             {/* Hours */}
-            <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-wine-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-7 h-7 text-wine-600" />
+            <div className="group bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-8 border-2 border-spanish-600/20 hover:border-gold-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-gold-400/20">
+              <div className="flex items-start gap-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-gold-500 to-gold-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:rotate-6 transition-transform">
+                  <Clock className="w-8 h-8 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-serif text-2xl font-bold text-wine-900 mb-4">
-                    Horarios de Atención
+                  <h3 className="font-serif text-2xl font-bold text-gold-400 mb-4 group-hover:text-gold-300 transition-colors">
+                    Horarios
                   </h3>
-                  <div className="space-y-2">
-                    <p className="text-gray-700 leading-relaxed">
-                      {locationData.hours.weekdays}
-                    </p>
-                    <p className="text-gray-700 leading-relaxed">
-                      {locationData.hours.saturday}
-                    </p>
-                    <p className="text-gray-700 leading-relaxed">
-                      {locationData.hours.sunday}
-                    </p>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 bg-spanish-600 rounded-full"></div>
+                      <p className="text-gray-300">{locationData.hours.weekdays}</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 bg-spanish-600 rounded-full"></div>
+                      <p className="text-gray-300">{locationData.hours.saturday}</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 bg-spanish-600 rounded-full"></div>
+                      <p className="text-gray-300">{locationData.hours.sunday}</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Phone */}
-            <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-wine-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-7 h-7 text-wine-600" />
+            <div className="group bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-8 border-2 border-spanish-600/20 hover:border-gold-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-spanish-600/20">
+              <div className="flex items-start gap-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-spanish-600 to-spanish-700 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:rotate-6 transition-transform">
+                  <Phone className="w-8 h-8 text-white" />
                 </div>
-                <div>
-                  <h3 className="font-serif text-2xl font-bold text-wine-900 mb-2">
+                <div className="flex-1">
+                  <h3 className="font-serif text-2xl font-bold text-gold-400 mb-3 group-hover:text-gold-300 transition-colors">
                     Teléfono
                   </h3>
                   <a
                     href={`tel:${locationData.phone}`}
-                    className="text-wine-600 hover:text-wine-700 text-lg font-semibold transition-colors"
+                    className="text-2xl font-bold bg-gradient-to-r from-spanish-500 to-gold-400 bg-clip-text text-transparent hover:from-spanish-400 hover:to-gold-300 transition-all inline-block"
                   >
                     {locationData.phone}
                   </a>
-                  <p className="text-gray-600 mt-1">
+                  <p className="text-gray-400 mt-2">
                     Llámanos para pedidos y consultas
                   </p>
                 </div>

@@ -1,14 +1,14 @@
 'use client';
 
-import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
-// import Image from 'next/image'; // Descomentar cuando uses el logo blanco
+import { Facebook, Instagram, Mail, Phone, MapPin, Heart } from 'lucide-react';
+import Image from 'next/image';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
+    { icon: Facebook, href: '#', label: 'Facebook' },
+    { icon: Instagram, href: '#', label: 'Instagram' },
   ];
 
   const quickLinks = [
@@ -20,93 +20,103 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-wine-900 text-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-4 gap-12">
-          {/* Brand */}
+    <footer className="bg-dark-950 text-white border-t-2 border-spanish-600/20 relative overflow-hidden">
+      {/* Patrón de fondo decorativo */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 20% 50%, #dc2626 1px, transparent 1px), radial-gradient(circle at 80% 50%, #facc15 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+        }}></div>
+      </div>
+      
+      <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          {/* Brand Premium con Logo Real */}
           <div className="md:col-span-2">
-            {/* TODO: Descomentar cuando tengas logo-don-esteban-white.png
             <div className="mb-6">
               <Image
-                src="/images/logo-don-esteban-white.png"
+                src="/images/logo-don-esteban-gourmet-blanco-2.png"
                 alt="Don Esteban Gourmet"
-                width={250}
-                height={100}
-                className="w-auto h-20"
+                width={240}
+                height={80}
+                className="w-auto h-16 md:h-20"
               />
             </div>
-            */}
-            <h3 className="font-serif text-3xl font-bold mb-4">
-              Don Esteban Gourmet
-            </h3>
-            <p className="text-gray-300 leading-relaxed mb-6">
-              Sabores de Europa, España y el mundo. Más de 25 años compartiendo los mejores embutidos, quesos y productos gourmet con nuestra ciudad.
+            <p className="text-gray-400 leading-relaxed mb-6 max-w-md">
+              Sabores auténticos de España y Europa. Más de 30 años compartiendo los mejores jamones, embutidos y productos gourmet.
             </p>
             <div className="flex gap-4">
-              {socialLinks.map((social, index) => {
+              {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
                   <a
-                    key={index}
+                    key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-wine-800 hover:bg-wine-700 rounded-full flex items-center justify-center transition-colors"
+                    className="w-12 h-12 bg-gradient-to-br from-spanish-600 to-spanish-700 hover:from-gold-500 hover:to-gold-600 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:rotate-6"
                     aria-label={social.label}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-6 h-6" />
                   </a>
                 );
               })}
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links Premium */}
           <div>
-            <h4 className="font-serif text-xl font-bold mb-4">
-              Enlaces Rápidos
+            <h4 className="font-serif text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gold-400">
+              Navegación
             </h4>
-            <ul className="space-y-2">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-gold-400 transition-all inline-flex items-center gap-3 group"
                   >
-                    {link.label}
+                    <span className="w-2 h-2 bg-spanish-600 rounded-full group-hover:w-6 group-hover:bg-gold-400 transition-all"></span>
+                    <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Info Premium */}
           <div>
-            <h4 className="font-serif text-xl font-bold mb-4">
+            <h4 className="font-serif text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gold-400">
               Contacto
             </h4>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
-                <span className="text-gray-300">
+              <li className="flex items-start gap-3 group">
+                <div className="w-10 h-10 bg-spanish-600/20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-spanish-600/40 transition-colors">
+                  <MapPin className="w-5 h-5 text-gold-400" />
+                </div>
+                <span className="text-gray-400 group-hover:text-gray-300 transition-colors">
                   Calle Principal #123<br />
                   Centro, Aruba
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 flex-shrink-0" />
+              <li className="flex items-center gap-3 group">
+                <div className="w-10 h-10 bg-spanish-600/20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-spanish-600/40 transition-colors">
+                  <Phone className="w-5 h-5 text-gold-400" />
+                </div>
                 <a
                   href="tel:+50488391675"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-gold-400 transition-colors font-semibold"
                 >
                   +504 8839-1675
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 flex-shrink-0" />
+              <li className="flex items-center gap-3 group">
+                <div className="w-10 h-10 bg-spanish-600/20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-spanish-600/40 transition-colors">
+                  <Mail className="w-5 h-5 text-gold-400" />
+                </div>
                 <a
                   href="mailto:info@donestebangourmet.com"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-gold-400 transition-colors"
                 >
                   info@donestebangourmet.com
                 </a>
@@ -115,23 +125,27 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-wine-800 my-8"></div>
+        {/* Divider decorativo */}
+        <div className="mt-12 md:mt-16 mb-6 md:mb-8">
+          <div className="h-px bg-gradient-to-r from-transparent via-spanish-600 to-transparent"></div>
+        </div>
 
-        {/* Bottom Bar */}
-        <div className="md:flex md:justify-between md:items-center text-center md:text-left space-y-4 md:space-y-0">
-          <div className="text-gray-400 text-sm">
-            &copy; {currentYear} Don Esteban Gourmet. Todos los derechos reservados.
-          </div>
-          <div className="flex flex-wrap justify-center md:justify-end gap-6 text-sm">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              Política de Privacidad
+        {/* Bottom Bar Premium */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-400 text-sm flex items-center gap-2">
+            &copy; {currentYear} Don Esteban Gourmet. Hecho con <Heart className="w-4 h-4 text-spanish-500 fill-spanish-500 animate-pulse" /> en España
+          </p>
+          <div className="flex gap-6 text-sm">
+            <a href="#" className="text-gray-400 hover:text-gold-400 transition-colors">
+              Privacidad
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              Términos y Condiciones
+            <span className="text-gray-600">•</span>
+            <a href="#" className="text-gray-400 hover:text-gold-400 transition-colors">
+              Términos
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              Aviso Legal
+            <span className="text-gray-600">•</span>
+            <a href="#" className="text-gray-400 hover:text-gold-400 transition-colors">
+              Cookies
             </a>
           </div>
         </div>

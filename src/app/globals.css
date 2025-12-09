@@ -8,16 +8,47 @@
   }
 
   body {
-    @apply antialiased;
+    @apply antialiased bg-dark-900 text-gray-100;
   }
 
   * {
-    @apply border-gray-200;
+    @apply border-gray-700;
+  }
+  
+  /* Scrollbar personalizado español */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #dc2626, #facc15);
+    border-radius: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #b91c1c, #eab308);
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Gradiente español personalizado */
+  .gradient-spanish {
+    background: linear-gradient(135deg, #dc2626 0%, #facc15 100%);
+  }
+  
+  /* Text gradient español */
+  .text-gradient-spanish {
+    background: linear-gradient(135deg, #ef4444 0%, #facc15 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
