@@ -97,8 +97,8 @@ const Footer = () => {
                   <MapPin className="w-5 h-5 text-gold-400" />
                 </div>
                 <span className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                  Calle Principal #123<br />
-                  Centro, Aruba
+                  J.E. Irausquin Blvd 97-A<br />
+                  Noord, Aruba (Near Radisson Blu)
                 </span>
               </li>
               <li className="flex items-center gap-3 group">

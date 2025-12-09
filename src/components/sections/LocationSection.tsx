@@ -30,15 +30,15 @@ const LocationSection = () => {
   }, []);
 
   const locationData = {
-    address: 'Calle Principal #123, Centro',
-    city: 'Aruba',
+    address: 'J.E. Irausquin Blvd 97-A',
+    city: 'Noord, Aruba',
     phone: '+504 8839-1675',
     hours: {
       weekdays: 'Lunes a Viernes: 9:00 AM - 7:00 PM',
       saturday: 'Sábado: 9:00 AM - 6:00 PM',
       sunday: 'Domingo: 10:00 AM - 3:00 PM',
     },
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3929.5441898625947!2d-70.04571152458908!3d12.575758918916852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDM0JzMyLjciTiA3MMKwMDInMzUuMyJX!5e0!3m2!1sen!2s!4v1702313000000!5m2!1sen!2s',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.365978985697!2d-70.04025842396744!3d12.567639087803598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e8533a23e3dd74b%3A0x3f8f1c3c1e3c1c1c!2sJ.E.%20Irausquin%20Blvd%2097-A%2C%20Aruba!5e0!3m2!1sen!2s!4v1702313000000!5m2!1sen!2s',
   };
 
   return (
