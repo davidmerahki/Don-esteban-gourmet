@@ -1,8 +1,32 @@
 'use client';
 
-import { MapPin, Clock, Phone, Navigation } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { MapPin, Clock, Phone, Navigation, Loader2 } from 'lucide-react';
 
 const LocationSection = () => {
+  const [mapLoaded, setMapLoaded] = useState(false);
+  const [shouldLoadMap, setShouldLoadMap] = useState(false);
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+
+  // Intersection Observer para cargar mapa solo cuando sea visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShouldLoadMap(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' } // Empieza a cargar 200px antes
+    );
+
+    if (mapContainerRef.current) {
+      observer.observe(mapContainerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const locationData = {
     address: 'Calle Principal #123, Centro',
     city: 'Aruba',
@@ -50,26 +74,40 @@ const LocationSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
-          {/* Map Premium */}
-          <div className="relative animate-slide-in-left">
+          {/* Map Premium con Lazy Loading Optimizado */}
+          <div ref={mapContainerRef} className="relative animate-slide-in-left">
             {/* Frame decorativo */}
             <div className="absolute -inset-4 bg-gradient-to-br from-spanish-600/20 via-gold-400/10 to-spanish-600/20 rounded-3xl blur-xl"></div>
             
-            <div className="relative h-[350px] md:h-[450px] lg:h-[500px] rounded-2xl overflow-hidden border-4 border-gold-400/30 shadow-2xl">
-              <iframe
-                src={locationData.mapEmbedUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación de Don Esteban Gourmet"
-                className="grayscale hover:grayscale-0 transition-all duration-500"
-              />
+            <div className="relative h-[350px] md:h-[450px] lg:h-[500px] rounded-2xl overflow-hidden border-4 border-gold-400/30 shadow-2xl bg-dark-800">
+              {/* Loading Placeholder */}
+              {!mapLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-dark-800">
+                  <div className="text-center">
+                    <Loader2 className="w-12 h-12 text-gold-400 animate-spin mx-auto mb-4" />
+                    <p className="text-gray-400 text-sm">Cargando mapa...</p>
+                  </div>
+                </div>
+              )}
               
-              {/* Overlay con info */}
-              <div className="absolute bottom-6 left-6 right-6 bg-dark-900/90 backdrop-blur-md border border-gold-400/30 rounded-xl p-4">
+              {/* Google Maps Iframe - Solo carga cuando es visible */}
+              {shouldLoadMap && (
+                <iframe
+                  src={locationData.mapEmbedUrl}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ubicación de Don Esteban Gourmet"
+                  className="grayscale hover:grayscale-0 transition-all duration-500"
+                  onLoad={() => setMapLoaded(true)}
+                />
+              )}
+              
+              {/* Overlay con info - Siempre visible */}
+              <div className="absolute bottom-6 left-6 right-6 bg-dark-900/90 backdrop-blur-md border border-gold-400/30 rounded-xl p-4 z-10">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-spanish-600 to-spanish-700 rounded-lg flex items-center justify-center">
                     <MapPin className="w-6 h-6 text-white" />

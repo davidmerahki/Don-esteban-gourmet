@@ -13,7 +13,7 @@ const AboutSection = () => {
       alt: 'Tabla de embutidos y quesos gourmet',
     },
     {
-      src: '/images/historia-chef.png',
+      src: '/images/historia-chef.jpg',
       alt: 'Chef preparando productos gourmet',
     },
   ];
