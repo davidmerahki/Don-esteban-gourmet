@@ -16,9 +16,23 @@ const HeroSection = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark-950"
     >
-      {/* Background Image with Subtle Overlay */}
+      {/* Background Image with Subtle Overlay - Responsive */}
+      {/* Mobile Background */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
+        style={{
+          backgroundImage: 'url(/images/hero-phone.jpg)',
+        }}
+      >
+        {/* Overlay más sutil para mostrar la imagen */}
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-950/50 via-dark-900/40 to-dark-950/60"></div>
+        {/* Acento rojo España muy sutil */}
+        <div className="absolute inset-0 bg-gradient-to-r from-spanish-900/10 via-transparent to-gold-900/10"></div>
+      </div>
+
+      {/* Desktop Background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
         style={{
           backgroundImage: 'url(/images/hero.jpg)',
         }}
