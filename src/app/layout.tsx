@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/context/LanguageContext";
+import LanguageWidget from "@/components/LanguageWidget";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -24,9 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        {children}
+        <LanguageProvider>
+          {children}
+          <LanguageWidget />
+        </LanguageProvider>
       </body>
     </html>
   );

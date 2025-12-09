@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { Send, MessageCircle } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ContactSection = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -43,13 +45,13 @@ const ContactSection = () => {
         <div className="text-center max-w-4xl mx-auto mb-20 animate-fade-in-up">
           <div className="inline-block mb-4">
             <span className="px-6 py-2 bg-gold-600/20 border border-spanish-600/30 rounded-full text-spanish-400 text-sm font-bold tracking-wider">
-              💬 HABLEMOS
+              {t.contact.badge}
             </span>
           </div>
           <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            <span className="block text-white mb-2">¿Tienes</span>
+            <span className="block text-white mb-2">{t.contact.title1}</span>
             <span className="block bg-gradient-to-r from-gold-400 via-spanish-500 to-gold-400 bg-clip-text text-transparent">
-              Preguntas?
+              {t.contact.title2}
             </span>
           </h2>
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -58,7 +60,7 @@ const ContactSection = () => {
             <div className="h-px w-20 bg-gradient-to-r from-transparent via-spanish-500 to-transparent"></div>
           </div>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Estamos aquí para ayudarte. Contáctanos por WhatsApp o completa el formulario
+            {t.contact.subtitle}
           </p>
         </div>
 
@@ -67,12 +69,12 @@ const ContactSection = () => {
             {/* Contact Form Premium */}
             <div className="bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-6 md:p-8 border-2 border-spanish-600/20 animate-slide-in-left">
               <h3 className="font-serif text-2xl md:text-3xl font-bold text-gold-400 mb-6 md:mb-8">
-                Envíanos un Mensaje
+                {t.contact.form.title}
               </h3>
               <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-bold text-gray-300 mb-2">
-                    Nombre completo *
+                    {t.contact.form.name} *
                   </label>
                   <input
                     type="text"
@@ -82,13 +84,13 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-dark-700 border-2 border-spanish-600/30 focus:border-gold-400 rounded-xl text-white placeholder-gray-500 transition-all outline-none"
-                    placeholder="Tu nombre"
+                    placeholder={t.contact.form.namePlaceholder}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-bold text-gray-300 mb-2">
-                    Correo electrónico *
+                    {t.contact.form.email} *
                   </label>
                   <input
                     type="email"
@@ -98,7 +100,7 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-dark-700 border-2 border-spanish-600/30 focus:border-gold-400 rounded-xl text-white placeholder-gray-500 transition-all outline-none"
-                    placeholder="tu@email.com"
+                    placeholder={t.contact.form.emailPlaceholder}
                   />
                 </div>
 
@@ -119,7 +121,7 @@ const ContactSection = () => {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-bold text-gray-300 mb-2">
-                    Mensaje *
+                    {t.contact.form.message} *
                   </label>
                   <textarea
                     id="message"
@@ -129,7 +131,7 @@ const ContactSection = () => {
                     onChange={handleChange}
                     rows={5}
                     className="w-full px-4 py-3 bg-dark-700 border-2 border-spanish-600/30 focus:border-gold-400 rounded-xl text-white placeholder-gray-500 transition-all outline-none resize-none"
-                    placeholder="Cuéntanos cómo podemos ayudarte..."
+                    placeholder={t.contact.form.messagePlaceholder}
                   />
                 </div>
 
@@ -138,7 +140,7 @@ const ContactSection = () => {
                   className="w-full bg-gradient-to-r from-spanish-600 to-spanish-700 hover:from-spanish-700 hover:to-spanish-800 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl shadow-spanish-600/50 border-2 border-gold-400/30 flex items-center justify-center gap-2"
                 >
                   <Send className="w-5 h-5" />
-                  Enviar Mensaje
+                  {t.contact.form.submit}
                 </button>
               </form>
             </div>
@@ -151,10 +153,10 @@ const ContactSection = () => {
                     <MessageCircle className="w-12 h-12" />
                   </div>
                   <h3 className="font-serif text-3xl md:text-4xl font-bold mb-4">
-                    ¿Prefieres WhatsApp?
+                    {t.contact.whatsapp.title}
                   </h3>
                   <p className="text-white/90 text-lg mb-8 leading-relaxed">
-                    Chatea con nosotros directamente y obtén respuesta inmediata. Te asesoramos en pedidos y consultas.
+                    {t.contact.whatsapp.desc}
                   </p>
                   <a
                     href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
@@ -163,11 +165,11 @@ const ContactSection = () => {
                     className="inline-flex items-center gap-3 px-10 py-5 bg-white text-green-600 rounded-full font-bold text-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-110 shadow-2xl group"
                   >
                     <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-                    Abrir WhatsApp
+                    {t.contact.whatsapp.cta}
                   </a>
                   <div className="mt-8 flex items-center justify-center gap-2 text-sm">
                     <div className="w-2 h-2 bg-green-300 rounded-full animate-pulse"></div>
-                    <p className="text-white/90 font-semibold">Respuesta en menos de 1 hora</p>
+                    <p className="text-white/90 font-semibold">{t.contact.whatsapp.badge}</p>
                   </div>
                 </div>
               </div>

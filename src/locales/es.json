@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "menu": "Menú",
+    "location": "Ubicación",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "badge": "🇪🇸 TRADICIÓN ESPAÑOLA DESDE 1995",
+    "headline1": "Auténticos Jamones Ibéricos",
+    "headline2": "y Embutidos Españoles",
+    "description": "Sabores selectos de España para disfrutar, compartir y regalar",
+    "cta1": "Ver Nuestro Menú",
+    "cta2": "Pedir por WhatsApp",
+    "features": {
+      "quality": {
+        "title": "Calidad Premium",
+        "desc": "Jamones ibéricos certificados"
+      },
+      "origin": {
+        "title": "100% Español",
+        "desc": "Directamente desde España"
+      },
+      "legacy": {
+        "title": "Desde 1995",
+        "desc": "Tradición y experiencia"
+      }
+    },
+    "scroll": "DESCUBRE MÁS"
+  },
+  "about": {
+    "badge": "🌟 NUESTRA HISTORIA",
+    "title1": "Sabores Auténticos",
+    "title2": "de España y Europa",
+    "subtitle": "Pasión por la excelencia española en cada jamón y embutido",
+    "body1": "Nacimos con la idea de traer a nuestra ciudad los mejores sabores de Europa, en especial de España, Italia y Francia. Seleccionamos cada producto con cuidado, priorizando la calidad, el origen y la tradición.",
+    "body2": "Desde jamones ibéricos de bellota hasta quesos artesanales y vinos selectos, cada producto cuenta una historia. Una historia de familias, de maestros artesanos y de pasión por lo auténtico.",
+    "quote": "Nos apasiona compartir estos sabores auténticos contigo",
+    "values": {
+      "passion": {
+        "title": "Pasión",
+        "desc": "Amamos lo que hacemos. Cada producto es seleccionado con dedicación y cuidado para garantizar la mejor experiencia."
+      },
+      "quality": {
+        "title": "Calidad",
+        "desc": "Solo los mejores productos de proveedores certificados llegan a tu mesa. Sin compromisos."
+      },
+      "trust": {
+        "title": "Confianza",
+        "desc": "Más de 30 años construyendo relaciones con familias y empresas. Tu satisfacción es nuestro orgullo."
+      }
+    }
+  },
+  "menu": {
+    "badge": "🍷 PRODUCTOS SELECTOS",
+    "title1": "Sabores de",
+    "title2": "España y Europa",
+    "subtitle": "Jamones ibéricos, embutidos artesanales, quesos europeos y productos gourmet para disfrutar",
+    "categories": {
+      "hams": {
+        "title": "Jamones Ibéricos",
+        "desc": "Jamón de bellota, jamón serrano y embutidos españoles de primera calidad."
+      },
+      "cheese": {
+        "title": "Quesos Artesanales",
+        "desc": "Selección de quesos europeos: manchego, parmesano, brie, gouda y más."
+      },
+      "wine": {
+        "title": "Vinos y Conservas",
+        "desc": "Vinos españoles, italianos y franceses. Aceites de oliva y conservas gourmet."
+      },
+      "gifts": {
+        "title": "Tablas y Regalos",
+        "desc": "Cestas gourmet personalizadas y tablas listas para compartir."
+      }
+    },
+    "cta": {
+      "badge": "CATÁLOGO COMPLETO",
+      "title1": "Descubre Nuestro",
+      "title2": "Menú Completo",
+      "desc": "Explora todos nuestros productos, precios y promociones especiales. Actualizado con nuevas llegadas de España.",
+      "button": "Acceder al Menú",
+      "stats": {
+        "products": "Productos",
+        "spanish": "Español",
+        "years": "Años"
+      }
+    },
+    "features": {
+      "import": {
+        "title": "Importación Directa",
+        "desc": "Productos traídos directamente desde España"
+      },
+      "special": {
+        "title": "Pedidos Especiales",
+        "desc": "¿No encuentras algo? Lo conseguimos para ti"
+      },
+      "wrapping": {
+        "title": "Envoltorio Premium",
+        "desc": "Todos nuestros regalos perfectamente presentados"
+      }
+    }
+  },
+  "location": {
+    "badge": "📍 ENCUÉNTRANOS",
+    "title1": "Visítanos en",
+    "title2": "Aruba",
+    "subtitle": "Te esperamos con la mejor atención y productos selectos de España",
+    "mapLabel": "NUESTRA UBICACIÓN",
+    "loadingMap": "Cargando mapa...",
+    "address": {
+      "title": "Dirección",
+      "line1": "Calle Principal #123",
+      "line2": "Centro, Aruba",
+      "cta": "Cómo Llegar"
+    },
+    "hours": {
+      "title": "Horario de Atención",
+      "weekdays": "Lunes a Viernes",
+      "weekdaysTime": "9:00 AM - 7:00 PM",
+      "saturday": "Sábado",
+      "saturdayTime": "9:00 AM - 6:00 PM",
+      "sunday": "Domingo",
+      "sundayTime": "10:00 AM - 3:00 PM"
+    },
+    "phone": {
+      "title": "Llámanos",
+      "subtitle": "¿Preguntas? Estamos aquí para ayudarte",
+      "cta": "Llamar Ahora"
+    }
+  },
+  "contact": {
+    "badge": "💬 CONTÁCTANOS",
+    "title1": "¿Tienes Alguna",
+    "title2": "Pregunta?",
+    "subtitle": "Estamos aquí para ayudarte. Contáctanos por WhatsApp o completa el formulario",
+    "form": {
+      "title": "Envíanos un Mensaje",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "message": "Tu mensaje",
+      "namePlaceholder": "Tu nombre",
+      "emailPlaceholder": "tu@email.com",
+      "messagePlaceholder": "Cuéntanos sobre tus necesidades...",
+      "submit": "Enviar Mensaje",
+      "success": "¡Mensaje enviado exitosamente!",
+      "error": "Error al enviar mensaje"
+    },
+    "whatsapp": {
+      "title": "¿Prefieres WhatsApp?",
+      "desc": "Chatea con nosotros directamente y obtén respuesta inmediata. Te asesoramos en pedidos y consultas.",
+      "cta": "Chatear por WhatsApp",
+      "badge": "Respuesta < 1 hora"
+    }
+  },
+  "footer": {
+    "description": "Sabores auténticos de España y Europa. Más de 30 años compartiendo los mejores jamones, embutidos y productos gourmet.",
+    "navigation": {
+      "title": "Navegación"
+    },
+    "contact": {
+      "title": "Contacto"
+    },
+    "tagline": "Hecho con",
+    "location": "en España",
+    "links": {
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "cookies": "Cookies"
+    }
+  }
+}

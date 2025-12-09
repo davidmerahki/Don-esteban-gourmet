@@ -2,8 +2,10 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { MapPin, Clock, Phone, Navigation, Loader2 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const LocationSection = () => {
+  const { t } = useLanguage();
   const [mapLoaded, setMapLoaded] = useState(false);
   const [shouldLoadMap, setShouldLoadMap] = useState(false);
   const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -54,13 +56,13 @@ const LocationSection = () => {
         <div className="text-center max-w-4xl mx-auto mb-20 animate-fade-in-up">
           <div className="inline-block mb-4">
             <span className="px-6 py-2 bg-spanish-600/20 border border-gold-400/30 rounded-full text-gold-400 text-sm font-bold tracking-wider">
-              📍 ENCUÉNTRANOS
+              {t.location.badge}
             </span>
           </div>
           <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            <span className="block text-white mb-2">Visítanos en</span>
+            <span className="block text-white mb-2">{t.location.title1}</span>
             <span className="block bg-gradient-to-r from-spanish-500 via-gold-400 to-spanish-500 bg-clip-text text-transparent">
-              {locationData.city}
+              {t.location.title2}
             </span>
           </h2>
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -69,7 +71,7 @@ const LocationSection = () => {
             <div className="h-px w-20 bg-gradient-to-r from-transparent via-gold-400 to-transparent"></div>
           </div>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Te esperamos con la mejor atención y productos selectos de España
+            {t.location.subtitle}
           </p>
         </div>
 
@@ -85,7 +87,7 @@ const LocationSection = () => {
                 <div className="absolute inset-0 flex items-center justify-center bg-dark-800">
                   <div className="text-center">
                     <Loader2 className="w-12 h-12 text-gold-400 animate-spin mx-auto mb-4" />
-                    <p className="text-gray-400 text-sm">Cargando mapa...</p>
+                    <p className="text-gray-400 text-sm">{t.location.loadingMap}</p>
                   </div>
                 </div>
               )}
@@ -113,8 +115,8 @@ const LocationSection = () => {
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <p className="text-gold-400 text-sm font-semibold">NUESTRA UBICACIÓN</p>
-                    <p className="text-white font-medium">{locationData.city}</p>
+                    <p className="text-gold-400 text-sm font-semibold">{t.location.mapLabel}</p>
+                    <p className="text-white font-medium">{t.location.title2}</p>
                   </div>
                 </div>
               </div>
@@ -131,13 +133,13 @@ const LocationSection = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-serif text-2xl font-bold text-gold-400 mb-3 group-hover:text-gold-300 transition-colors">
-                    Dirección
+                    {t.location.address.title}
                   </h3>
                   <p className="text-gray-300 text-lg leading-relaxed mb-1">
-                    {locationData.address}
+                    {t.location.address.line1}
                   </p>
                   <p className="text-gray-400 text-lg">
-                    {locationData.city}
+                    {t.location.address.line2}
                   </p>
                 </div>
               </div>
@@ -151,20 +153,20 @@ const LocationSection = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-serif text-2xl font-bold text-gold-400 mb-4 group-hover:text-gold-300 transition-colors">
-                    Horarios
+                    {t.location.hours.title}
                   </h3>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-spanish-600 rounded-full"></div>
-                      <p className="text-gray-300">{locationData.hours.weekdays}</p>
+                      <p className="text-gray-300"><span className="font-semibold">{t.location.hours.weekdays}:</span> {t.location.hours.weekdaysTime}</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-spanish-600 rounded-full"></div>
-                      <p className="text-gray-300">{locationData.hours.saturday}</p>
+                      <p className="text-gray-300"><span className="font-semibold">{t.location.hours.saturday}:</span> {t.location.hours.saturdayTime}</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-spanish-600 rounded-full"></div>
-                      <p className="text-gray-300">{locationData.hours.sunday}</p>
+                      <p className="text-gray-300"><span className="font-semibold">{t.location.hours.sunday}:</span> {t.location.hours.sundayTime}</p>
                     </div>
                   </div>
                 </div>
@@ -179,7 +181,7 @@ const LocationSection = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-serif text-2xl font-bold text-gold-400 mb-3 group-hover:text-gold-300 transition-colors">
-                    Teléfono
+                    {t.location.phone.title}
                   </h3>
                   <a
                     href={`tel:${locationData.phone}`}
@@ -188,7 +190,7 @@ const LocationSection = () => {
                     {locationData.phone}
                   </a>
                   <p className="text-gray-400 mt-2">
-                    Llámanos para pedidos y consultas
+                    {t.location.phone.subtitle}
                   </p>
                 </div>
               </div>

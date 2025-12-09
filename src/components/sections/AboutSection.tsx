@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react';
 import { Heart, Award, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
 
 const AboutSection = () => {
+  const { t } = useLanguage();
   const [currentImage, setCurrentImage] = useState(0);
   
   const images = [
@@ -48,13 +50,13 @@ const AboutSection = () => {
         <div className="text-center max-w-4xl mx-auto mb-20 animate-fade-in-up">
           <div className="inline-block mb-4">
             <span className="px-6 py-2 bg-spanish-600/20 border border-gold-400/30 rounded-full text-gold-400 text-sm font-bold tracking-wider">
-              🇪🇸 TRADICIÓN DESDE 1995
+              {t.about.badge}
             </span>
           </div>
           <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            <span className="block text-white mb-2">Nuestra</span>
+            <span className="block text-white mb-2">{t.about.title1}</span>
             <span className="block bg-gradient-to-r from-spanish-500 via-gold-400 to-spanish-500 bg-clip-text text-transparent">
-              Historia
+              {t.about.title2}
             </span>
           </h2>
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -63,7 +65,7 @@ const AboutSection = () => {
             <div className="h-px w-20 bg-gradient-to-r from-transparent via-gold-400 to-transparent"></div>
           </div>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Pasión por la excelencia española en cada jamón y embutido
+            {t.about.subtitle}
           </p>
         </div>
 
@@ -76,21 +78,21 @@ const AboutSection = () => {
                 <div className="flex items-start gap-4">
                   <div className="w-1 h-20 bg-gradient-to-b from-spanish-600 to-gold-400 rounded-full"></div>
                   <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                    Nacimos con la idea de traer a nuestra ciudad los <span className="text-gold-400 font-semibold">mejores sabores de Europa</span>, en especial de España, Italia y Francia. Seleccionamos cada producto con cuidado, priorizando la calidad, el origen y la tradición.
+                    {t.about.body1}
                   </p>
                 </div>
                 
                 <div className="flex items-start gap-4">
                   <div className="w-1 h-20 bg-gradient-to-b from-spanish-600 to-gold-400 rounded-full"></div>
                   <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                    En nuestra tienda encontrarás <span className="text-gold-400 font-semibold">atención cercana</span>, recomendaciones personalizadas y todo lo necesario para armar la tabla perfecta, sorprender a tus invitados o darte un gusto especial.
+                    {t.about.body2}
                   </p>
                 </div>
                 
                 <div className="flex items-start gap-4">
                   <div className="w-1 h-20 bg-gradient-to-b from-spanish-600 to-gold-400 rounded-full"></div>
                   <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                    Cada producto que ofrecemos cuenta una historia. Desde los <span className="text-spanish-400 font-semibold">jamones ibéricos</span> curados en las sierras españolas hasta los quesos artesanales de pequeños productores europeos.
+                    {t.about.body2}
                   </p>
                 </div>
               </div>
@@ -101,7 +103,7 @@ const AboutSection = () => {
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                 </svg>
                 <p className="text-gray-200 italic text-lg">
-                  &ldquo;Nos apasiona compartir estos sabores auténticos contigo&rdquo;
+                  &ldquo;{t.about.quote}&rdquo;
                 </p>
               </div>
             </div>
@@ -193,10 +195,10 @@ const AboutSection = () => {
                   <Heart className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-serif text-2xl font-bold text-gold-400 mb-4 group-hover:text-gold-300 transition-colors">
-                  Pasión
+                  {t.about.values.passion.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Amamos lo que hacemos. Cada producto es seleccionado con dedicación y cuidado para garantizar la mejor experiencia.
+                  {t.about.values.passion.desc}
                 </p>
               </div>
             </div>
@@ -208,10 +210,10 @@ const AboutSection = () => {
                   <Award className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-serif text-2xl font-bold text-gold-400 mb-4 group-hover:text-gold-300 transition-colors">
-                  Calidad
+                  {t.about.values.quality.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Solo trabajamos con proveedores certificados y productos de origen controlado que cumplen los más altos estándares.
+                  {t.about.values.quality.desc}
                 </p>
               </div>
             </div>
@@ -223,10 +225,10 @@ const AboutSection = () => {
                   <Users className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-serif text-2xl font-bold text-gold-400 mb-4 group-hover:text-gold-300 transition-colors">
-                  Cercanía
+                  {t.about.values.trust.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Tratamos a cada cliente como familia. Te asesoramos personalmente para que encuentres exactamente lo que buscas.
+                  {t.about.values.trust.desc}
                 </p>
               </div>
             </div>

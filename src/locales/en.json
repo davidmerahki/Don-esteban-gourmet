@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "menu": "Menu",
+    "location": "Location",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "🇪🇸 SPANISH TRADITION SINCE 1995",
+    "headline1": "Experience Authentic Spain",
+    "headline2": "in the Heart of Aruba",
+    "description": "The finest Iberian Hams and European delicacies, curated for your Caribbean lifestyle",
+    "cta1": "Taste the Tradition",
+    "cta2": "Order via WhatsApp",
+    "features": {
+      "quality": {
+        "title": "Certified Premium",
+        "desc": "Award-winning Iberian hams"
+      },
+      "origin": {
+        "title": "100% Spanish",
+        "desc": "Straight from the source"
+      },
+      "legacy": {
+        "title": "Since 1995",
+        "desc": "30 years of excellence"
+      }
+    },
+    "scroll": "DISCOVER MORE"
+  },
+  "about": {
+    "badge": "🌟 OUR STORY",
+    "title1": "Bringing the Soul",
+    "title2": "of Spain to Your Table",
+    "subtitle": "Passion for Spanish excellence in every jamón and charcuterie",
+    "body1": "We believe that distance shouldn't compromise flavor. Born from a passion for European excellence, Don Esteban Gourmet bridges the gap between the Spanish sierras and the beaches of Aruba.",
+    "body2": "Whether you are hosting a sunset gathering or seeking the perfect gift, we curate every jamón, cheese, and wine with one goal: to transport you to Europe with every bite.",
+    "quote": "We don't just sell food; we share authentic culinary stories.",
+    "values": {
+      "passion": {
+        "title": "Passion",
+        "desc": "We love what we do. Each product is carefully selected to guarantee the best experience."
+      },
+      "quality": {
+        "title": "Quality",
+        "desc": "Only the finest products from certified European suppliers make it to your table."
+      },
+      "trust": {
+        "title": "Trust",
+        "desc": "Over 30 years building relationships with families across Aruba and beyond."
+      }
+    }
+  },
+  "menu": {
+    "badge": "🍷 CURATED SELECTION",
+    "title1": "A Journey Through",
+    "title2": "European Flavors",
+    "subtitle": "From Seville to Oranjestad—savor the world's finest delicacies",
+    "categories": {
+      "hams": {
+        "title": "Iberian Hams & Charcuterie",
+        "desc": "Hand-carved Jamón Ibérico de Bellota and premium cured meats that melt in your mouth."
+      },
+      "cheese": {
+        "title": "Artisan European Cheeses",
+        "desc": "A curated selection of aged Manchego, creamy Brie, Gouda, and more."
+      },
+      "wine": {
+        "title": "Fine Wines & Preserves",
+        "desc": "The perfect Spanish Rioja or Italian vintage to pair with your beachside dinner."
+      },
+      "gifts": {
+        "title": "Gourmet Boards & Gifts",
+        "desc": "Ready-to-serve tapas boards and luxury gift baskets for special occasions."
+      }
+    },
+    "cta": {
+      "badge": "FULL CATALOG",
+      "title1": "Discover Our",
+      "title2": "Complete Menu",
+      "desc": "Explore all our products, prices and special offers. Updated with new arrivals from Spain.",
+      "button": "Access Menu",
+      "stats": {
+        "products": "Products",
+        "spanish": "Spanish",
+        "years": "Years"
+      }
+    },
+    "features": {
+      "import": {
+        "title": "Straight from the Source",
+        "desc": "No middlemen. Just authentic products flown directly from Spain to Aruba"
+      },
+      "special": {
+        "title": "Craving Something Unique?",
+        "desc": "If it's in Europe, we can bring it to your doorstep. Just ask"
+      },
+      "wrapping": {
+        "title": "The Art of Gifting",
+        "desc": "Exquisite packaging that makes every delivery feel like a celebration"
+      }
+    }
+  },
+  "location": {
+    "badge": "📍 VISIT US",
+    "title1": "Visit Our Boutique",
+    "title2": "in Aruba",
+    "subtitle": "Come taste the difference. Our specialists are ready to guide you through a sensory experience",
+    "mapLabel": "OUR LOCATION",
+    "loadingMap": "Loading map...",
+    "address": {
+      "title": "Address",
+      "line1": "Main Street #123",
+      "line2": "Downtown, Aruba",
+      "cta": "Get Directions"
+    },
+    "hours": {
+      "title": "Opening Hours",
+      "weekdays": "Monday to Friday",
+      "weekdaysTime": "9:00 AM - 7:00 PM",
+      "saturday": "Saturday",
+      "saturdayTime": "9:00 AM - 6:00 PM",
+      "sunday": "Sunday",
+      "sundayTime": "10:00 AM - 3:00 PM"
+    },
+    "phone": {
+      "title": "Call Us",
+      "subtitle": "Questions? We're here to help",
+      "cta": "Call Now"
+    }
+  },
+  "contact": {
+    "badge": "💬 GET IN TOUCH",
+    "title1": "Have a",
+    "title2": "Special Request?",
+    "subtitle": "Let's talk about your next event or dinner party. We're here to help",
+    "form": {
+      "title": "Send Us a Message",
+      "name": "Full name",
+      "email": "Email address",
+      "message": "Your message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your@email.com",
+      "messagePlaceholder": "Tell us about your needs...",
+      "submit": "Send Message",
+      "success": "Message sent successfully!",
+      "error": "Error sending message"
+    },
+    "whatsapp": {
+      "title": "Prefer WhatsApp?",
+      "desc": "Chat with us directly for instant answers. We assist with orders and inquiries.",
+      "cta": "Chat on WhatsApp",
+      "badge": "Response < 1 hr"
+    }
+  },
+  "footer": {
+    "description": "Authentic flavors from Spain and Europe. Over 30 years sharing the finest hams, charcuterie and gourmet products.",
+    "navigation": {
+      "title": "Quick Links"
+    },
+    "contact": {
+      "title": "Contact Us"
+    },
+    "tagline": "Made with",
+    "location": "in the Caribbean",
+    "links": {
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies"
+    }
+  }
+}

@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Navbar = () => {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -17,11 +19,11 @@ const Navbar = () => {
   }, []);
 
   const menuItems = [
-    { label: 'Inicio', href: '#hero' },
-    { label: 'Nosotros', href: '#about' },
-    { label: 'Menú', href: '#menu' },
-    { label: 'Ubicación', href: '#location' },
-    { label: 'Contacto', href: '#contact' },
+    { label: t.nav.home, href: '#hero' },
+    { label: t.nav.about, href: '#about' },
+    { label: t.nav.menu, href: '#menu' },
+    { label: t.nav.location, href: '#location' },
+    { label: t.nav.contact, href: '#contact' },
   ];
 
   return (

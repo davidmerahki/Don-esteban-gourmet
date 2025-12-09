@@ -2,8 +2,10 @@
 
 import { Facebook, Instagram, Mail, Phone, MapPin, Heart } from 'lucide-react';
 import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
@@ -12,11 +14,11 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { label: 'Inicio', href: '#hero' },
-    { label: 'Nosotros', href: '#about' },
-    { label: 'Menú', href: '#menu' },
-    { label: 'Ubicación', href: '#location' },
-    { label: 'Contacto', href: '#contact' },
+    { label: t.nav.home, href: '#hero' },
+    { label: t.nav.about, href: '#about' },
+    { label: t.nav.menu, href: '#menu' },
+    { label: t.nav.location, href: '#location' },
+    { label: t.nav.contact, href: '#contact' },
   ];
 
   return (
@@ -43,7 +45,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-gray-400 leading-relaxed mb-6 max-w-md">
-              Sabores auténticos de España y Europa. Más de 30 años compartiendo los mejores jamones, embutidos y productos gourmet.
+              {t.footer.description}
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => {
@@ -67,7 +69,7 @@ const Footer = () => {
           {/* Quick Links Premium */}
           <div>
             <h4 className="font-serif text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gold-400">
-              Navegación
+              {t.footer.navigation.title}
             </h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -87,7 +89,7 @@ const Footer = () => {
           {/* Contact Info Premium */}
           <div>
             <h4 className="font-serif text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gold-400">
-              Contacto
+              {t.footer.contact.title}
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 group">
@@ -133,19 +135,19 @@ const Footer = () => {
         {/* Bottom Bar Premium */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm flex items-center gap-2">
-            &copy; {currentYear} Don Esteban Gourmet. Hecho con <Heart className="w-4 h-4 text-spanish-500 fill-spanish-500 animate-pulse" /> en España
+            &copy; {currentYear} Don Esteban Gourmet. {t.footer.tagline} <Heart className="w-4 h-4 text-spanish-500 fill-spanish-500 animate-pulse" /> {t.footer.location}
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-gray-400 hover:text-gold-400 transition-colors">
-              Privacidad
+              {t.footer.links.privacy}
             </a>
             <span className="text-gray-600">•</span>
             <a href="#" className="text-gray-400 hover:text-gold-400 transition-colors">
-              Términos
+              {t.footer.links.terms}
             </a>
             <span className="text-gray-600">•</span>
             <a href="#" className="text-gray-400 hover:text-gold-400 transition-colors">
-              Cookies
+              {t.footer.links.cookies}
             </a>
           </div>
         </div>

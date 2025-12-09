@@ -1,36 +1,38 @@
 'use client';
 
 import { Wine, Beef, ChefHat, Gift, ExternalLink, Sparkles, Package, Truck, Award } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const MenuSection = () => {
+  const { t } = useLanguage();
   const menuLink = '#'; // Variable para completar más adelante con el enlace al menú
 
   const categories = [
     {
       icon: Beef,
-      title: 'Jamones Ibéricos',
-      description: 'Jamón de bellota, jamón serrano y embutidos españoles de primera calidad.',
+      title: t.menu.categories.hams.title,
+      description: t.menu.categories.hams.desc,
       emoji: '🍖',
       color: 'from-spanish-600 to-spanish-700'
     },
     {
       icon: ChefHat,
-      title: 'Quesos Artesanales',
-      description: 'Selección de quesos europeos: manchego, parmesano, brie, gouda y más.',
+      title: t.menu.categories.cheese.title,
+      description: t.menu.categories.cheese.desc,
       emoji: '🧀',
       color: 'from-gold-500 to-gold-600'
     },
     {
       icon: Wine,
-      title: 'Vinos y Conservas',
-      description: 'Vinos españoles, italianos y franceses. Aceites de oliva y conservas gourmet.',
+      title: t.menu.categories.wine.title,
+      description: t.menu.categories.wine.desc,
       emoji: '🍷',
       color: 'from-spanish-700 to-spanish-800'
     },
     {
       icon: Gift,
-      title: 'Tablas y Regalos',
-      description: 'Cestas gourmet personalizadas y tablas listas para compartir.',
+      title: t.menu.categories.gifts.title,
+      description: t.menu.categories.gifts.desc,
       emoji: '🎁',
       color: 'from-gold-600 to-gold-700'
     },
@@ -53,13 +55,13 @@ const MenuSection = () => {
         <div className="text-center max-w-4xl mx-auto mb-20 animate-fade-in-up">
           <div className="inline-block mb-4">
             <span className="px-6 py-2 bg-gold-600/20 border border-spanish-600/30 rounded-full text-spanish-400 text-sm font-bold tracking-wider">
-              🍷 PRODUCTOS SELECTOS
+              {t.menu.badge}
             </span>
           </div>
           <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            <span className="block text-white mb-2">Sabores de</span>
+            <span className="block text-white mb-2">{t.menu.title1}</span>
             <span className="block bg-gradient-to-r from-gold-400 via-spanish-500 to-gold-400 bg-clip-text text-transparent">
-              España y Europa
+              {t.menu.title2}
             </span>
           </h2>
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -68,7 +70,7 @@ const MenuSection = () => {
             <div className="h-px w-20 bg-gradient-to-r from-transparent via-spanish-500 to-transparent"></div>
           </div>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Jamones ibéricos, embutidos artesanales, quesos europeos y productos gourmet para disfrutar
+            {t.menu.subtitle}
           </p>
         </div>
 
@@ -127,18 +129,18 @@ const MenuSection = () => {
             <div className="relative text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold-400/10 border border-gold-400/30 rounded-full mb-6">
                 <Sparkles className="w-4 h-4 text-gold-400 animate-pulse" />
-                <span className="text-gold-400 text-sm font-bold">CATÁLOGO COMPLETO</span>
+                <span className="text-gold-400 text-sm font-bold">{t.menu.cta.badge}</span>
               </div>
               
               <h3 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
-                Descubre Nuestro
+                {t.menu.cta.title1}
                 <span className="block bg-gradient-to-r from-spanish-500 to-gold-400 bg-clip-text text-transparent mt-2">
-                  Menú Completo
+                  {t.menu.cta.title2}
                 </span>
               </h3>
               
               <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-                Explora todos nuestros productos, precios y promociones especiales. Actualizado con nuevas llegadas de España.
+                {t.menu.cta.desc}
               </p>
               
               <a
@@ -146,7 +148,7 @@ const MenuSection = () => {
                 className="inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-spanish-600 to-spanish-700 hover:from-spanish-700 hover:to-spanish-800 text-white rounded-full font-bold text-xl transition-all duration-300 transform hover:scale-110 shadow-2xl shadow-spanish-600/50 border-2 border-gold-400/30 group"
               >
                 <Sparkles className="w-6 h-6 group-hover:rotate-180 transition-transform duration-500" />
-                Acceder al Menú
+                {t.menu.cta.button}
                 <ExternalLink className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </a>
               
@@ -154,15 +156,15 @@ const MenuSection = () => {
               <div className="mt-8 md:mt-12 grid grid-cols-3 gap-3 md:gap-6 max-w-2xl mx-auto">
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-spanish-500 to-gold-400 bg-clip-text text-transparent">50+</div>
-                  <div className="text-xs md:text-sm text-gray-400 mt-1">Productos</div>
+                  <div className="text-xs md:text-sm text-gray-400 mt-1">{t.menu.cta.stats.products}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-spanish-500 to-gold-400 bg-clip-text text-transparent">100%</div>
-                  <div className="text-xs md:text-sm text-gray-400 mt-1">Español</div>
+                  <div className="text-xs md:text-sm text-gray-400 mt-1">{t.menu.cta.stats.spanish}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-spanish-500 to-gold-400 bg-clip-text text-transparent">30</div>
-                  <div className="text-xs md:text-sm text-gray-400 mt-1">Años</div>
+                  <div className="text-xs md:text-sm text-gray-400 mt-1">{t.menu.cta.stats.years}</div>
                 </div>
               </div>
             </div>
@@ -175,24 +177,24 @@ const MenuSection = () => {
             <div className="w-14 h-14 bg-gradient-to-br from-spanish-600 to-spanish-700 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
               <Truck className="w-7 h-7 text-white" />
             </div>
-            <h4 className="font-bold text-lg text-gold-400 mb-2">Importación Directa</h4>
-            <p className="text-gray-400 text-sm">Productos traídos directamente desde España</p>
+            <h4 className="font-bold text-lg text-gold-400 mb-2">{t.menu.features.import.title}</h4>
+            <p className="text-gray-400 text-sm">{t.menu.features.import.desc}</p>
           </div>
           
           <div className="group relative bg-dark-800 rounded-2xl p-8 border border-spanish-600/20 hover:border-gold-400/50 transition-all duration-300 hover:transform hover:scale-105">
             <div className="w-14 h-14 bg-gradient-to-br from-gold-500 to-gold-600 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
               <Package className="w-7 h-7 text-white" />
             </div>
-            <h4 className="font-bold text-lg text-gold-400 mb-2">Pedidos Especiales</h4>
-            <p className="text-gray-400 text-sm">¿No encuentras algo? Lo conseguimos para ti</p>
+            <h4 className="font-bold text-lg text-gold-400 mb-2">{t.menu.features.special.title}</h4>
+            <p className="text-gray-400 text-sm">{t.menu.features.special.desc}</p>
           </div>
           
           <div className="group relative bg-dark-800 rounded-2xl p-8 border border-spanish-600/20 hover:border-gold-400/50 transition-all duration-300 hover:transform hover:scale-105">
             <div className="w-14 h-14 bg-gradient-to-br from-spanish-600 to-spanish-700 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
               <Award className="w-7 h-7 text-white" />
             </div>
-            <h4 className="font-bold text-lg text-gold-400 mb-2">Envoltorio Premium</h4>
-            <p className="text-gray-400 text-sm">Todos nuestros regalos perfectamente presentados</p>
+            <h4 className="font-bold text-lg text-gold-400 mb-2">{t.menu.features.wrapping.title}</h4>
+            <p className="text-gray-400 text-sm">{t.menu.features.wrapping.desc}</p>
           </div>
         </div>
       </div>
